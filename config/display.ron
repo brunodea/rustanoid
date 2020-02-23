@@ -1,0 +1,4 @@
+(
+  title: "Rustanoid",
+  dimensions: Some((800, 600)),
+)

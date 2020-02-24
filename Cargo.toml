@@ -5,7 +5,7 @@ authors = ["Bruno Romero de Azevedo <brunordea@gmail.com>"]
 edition = "2018"
 
 [dependencies]
-amethyst = "0.14.0"
+amethyst = { version = "0.14.0", features = ["nightly"] }
 
 [features]
 default = ["metal"]

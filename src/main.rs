@@ -9,9 +9,9 @@ use amethyst::{
     utils::application_root_dir,
 };
 
-pub struct Rustanoid;
+mod rustanoid;
 
-impl SimpleState for Rustanoid {}
+use crate::rustanoid::Rustanoid;
 
 fn main() -> amethyst::Result<()> {
     amethyst::start_logger(Default::default());

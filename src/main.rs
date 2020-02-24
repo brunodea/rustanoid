@@ -9,11 +9,9 @@ use amethyst::{
     utils::application_root_dir,
 };
 
-struct MyState;
+pub struct Rustanoid;
 
-impl SimpleState for MyState {
-    fn on_start(&mut self, _data: StateData<'_, GameData<'_, '_>>) {}
-}
+impl SimpleState for Rustanoid {}
 
 fn main() -> amethyst::Result<()> {
     amethyst::start_logger(Default::default());
@@ -34,7 +32,7 @@ fn main() -> amethyst::Result<()> {
         )?
         .with_bundle(TransformBundle::new())?;
 
-    let mut game = Application::new("/", MyState, game_data)?;
+    let mut game = Application::new("/", Rustanoid, game_data)?;
     game.run();
 
     Ok(())

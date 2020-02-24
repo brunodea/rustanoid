@@ -5,7 +5,7 @@ use amethyst::{
     input::{InputHandler, StringBindings},
 };
 
-use crate::rustanoid::Paddle;
+use crate::rustanoid::{Paddle, ARENA_WIDTH, PADDLE_WIDTH};
 
 #[derive(SystemDesc)]
 pub struct PaddleSystem;
@@ -25,7 +25,12 @@ impl<'s> System<'s> for PaddleSystem {
                 // instead of a fixed value, in order for it to be independent from the game's
                 // framerate.
                 let scaled_amount = 1.2 * mv_amount as f32;
-                transform.prepend_translation_x(scaled_amount);
+                let paddle_x = transform.translation().x;
+                transform.set_translation_x(
+                    (paddle_x + scaled_amount)
+                        .max(PADDLE_WIDTH * 0.5)
+                        .min(ARENA_WIDTH - (PADDLE_WIDTH * 0.5)),
+                );
             }
         }
     }

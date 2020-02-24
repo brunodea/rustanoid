@@ -32,7 +32,7 @@ fn main() -> amethyst::Result<()> {
         )?
         .with_bundle(TransformBundle::new())?;
 
-    let mut game = Application::new("/", Rustanoid, game_data)?;
+    let mut game = Application::new("assets", Rustanoid, game_data)?;
     game.run();
 
     Ok(())

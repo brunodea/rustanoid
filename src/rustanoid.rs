@@ -34,7 +34,7 @@ fn initialise_paddle(world: &mut World, sprite_sheet: Handle<SpriteSheet>) {
     let mut paddle_transform = Transform::default();
     // middle-bottom
     paddle_transform.set_translation_xyz(ARENA_WIDTH*0.5, PADDLE_HEIGHT*0.5, 0f32);
-    paddle_transform.rotate_2d(std::f64::consts::FRAC_PI_2 as f32); // pi/2 radians == 90 degrees
+    paddle_transform.rotate_2d(std::f32::consts::FRAC_PI_2); // pi/2 radians == 90 degrees
 
     let sprite_render = SpriteRender {
         sprite_sheet: sprite_sheet.clone(),

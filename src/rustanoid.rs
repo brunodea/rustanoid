@@ -1,8 +1,8 @@
 use amethyst::{
-    assets::{AssetStorage, Loader, Handle},
+    assets::{AssetStorage, Handle, Loader},
     core::transform::Transform,
-    prelude::{SimpleState, StateData, GameData, World, WorldExt, Builder},
     ecs::prelude::{Component, DenseVecStorage},
+    prelude::{Builder, GameData, SimpleState, StateData, World, WorldExt},
     renderer::{Camera, ImageFormat, SpriteRender, SpriteSheet, SpriteSheetFormat, Texture},
 };
 
@@ -33,7 +33,7 @@ impl Component for Paddle {
 fn initialise_paddle(world: &mut World, sprite_sheet: Handle<SpriteSheet>) {
     let mut paddle_transform = Transform::default();
     // middle-bottom
-    paddle_transform.set_translation_xyz(ARENA_WIDTH*0.5, PADDLE_HEIGHT*0.5, 0f32);
+    paddle_transform.set_translation_xyz(ARENA_WIDTH * 0.5, PADDLE_HEIGHT * 0.5, 0f32);
     paddle_transform.rotate_2d(std::f32::consts::FRAC_PI_2); // pi/2 radians == 90 degrees
 
     let sprite_render = SpriteRender {
@@ -72,7 +72,7 @@ fn load_sprite_sheet(world: &mut World) -> Handle<SpriteSheet> {
 }
 
 fn initialise_camera(world: &mut World) {
-    // Setup camera in a way that our screen covers whole arena and (0, 0) is in the bottom left. 
+    // Setup camera in a way that our screen covers whole arena and (0, 0) is in the bottom left.
     let mut camera_transform = Transform::default();
     camera_transform.set_translation_xyz(ARENA_WIDTH * 0.5, ARENA_HEIGHT * 0.5, 1.0);
 

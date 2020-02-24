@@ -1,5 +1,6 @@
 use amethyst::{
     core::transform::TransformBundle,
+    input::{InputBundle, StringBindings},
     prelude::*,
     renderer::{
         plugins::{RenderFlat2D, RenderToWindow},
@@ -7,7 +8,6 @@ use amethyst::{
         RenderingBundle,
     },
     utils::application_root_dir,
-    input::{InputBundle, StringBindings},
 };
 
 mod rustanoid;
@@ -35,9 +35,7 @@ fn main() -> amethyst::Result<()> {
                 .with_plugin(RenderFlat2D::default()),
         )?
         .with_bundle(TransformBundle::new())?
-        .with_bundle(
-            InputBundle::<StringBindings>::new().with_bindings_from_file(bindings_path)?
-        )?
+        .with_bundle(InputBundle::<StringBindings>::new().with_bindings_from_file(bindings_path)?)?
         .with(systems::PaddleSystem, "paddle_system", &["input_system"]);
 
     let mut game = Application::new("assets", Rustanoid, game_data)?;

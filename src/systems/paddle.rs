@@ -1,11 +1,11 @@
 use amethyst::{
-    core::{Transform, SystemDesc},
+    core::{SystemDesc, Transform},
     derive::SystemDesc,
     ecs::{Join, Read, ReadStorage, System, SystemData, World, WriteStorage},
     input::{InputHandler, StringBindings},
 };
 
-use crate::rustanoid::{Paddle};
+use crate::rustanoid::Paddle;
 
 #[derive(SystemDesc)]
 pub struct PaddleSystem;
@@ -24,7 +24,7 @@ impl<'s> System<'s> for PaddleSystem {
                 // TODO(brunor): use delta time from amethyst::core::timing::Time for the scale
                 // instead of a fixed value, in order for it to be independent from the game's
                 // framerate.
-                let scaled_amount = 1.2*mv_amount as f32;
+                let scaled_amount = 1.2 * mv_amount as f32;
                 transform.prepend_translation_x(scaled_amount);
             }
         }

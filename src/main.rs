@@ -38,7 +38,11 @@ fn main() -> amethyst::Result<()> {
         .with_bundle(InputBundle::<StringBindings>::new().with_bindings_from_file(bindings_path)?)?
         .with(systems::PaddleSystem, "paddle_system", &["input_system"])
         .with(systems::MoveBallsSystem, "balls_system", &[])
-        .with(systems::BounceSystem, "collision_system", &["paddle_system",  "balls_system"]);
+        .with(
+            systems::BounceSystem,
+            "collision_system",
+            &["paddle_system", "balls_system"],
+        );
 
     let mut game = Application::new("assets", Rustanoid, game_data)?;
     game.run();

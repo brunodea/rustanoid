@@ -130,8 +130,6 @@ impl SimpleState for Rustanoid {
 
         let sprite_sheet_handle = load_sprite_sheet(world);
 
-        world.register::<Ball>();
-
         initialise_ball(world, sprite_sheet_handle.clone());
         initialise_paddle(world, sprite_sheet_handle);
         initialise_camera(world);
